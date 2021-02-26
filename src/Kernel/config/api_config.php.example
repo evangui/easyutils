@@ -1,0 +1,49 @@
+<?php
+// 如需加载该配置文件，请在初始化位置使用如下方式：
+// use think\facade\Config;
+// Config::set(include __DIR__ . '/../config.php');
+// or Config::load(__DIR__ . '/../config.php');
+
+return [
+    'apiurl' => [
+        //借还书接口请求uri前缀
+        //'libsys'    => 'http://dev.bookgo.com.cn:83/',  //测试环境
+        'libsys'    => 'http://br.bookgo.com.cn/',    //正式环境
+
+        //微信图书馆接口请求url前缀
+        //'wxlib'     => 'https://dev.bookgo.com.cn/',      //测试环境
+         'wxlib'     => 'http://2016.bookgo.com.cn/',  //正式环境
+//         'wxlib'     => 'http://wxlib.bookgo.com.me/',  //本地环境
+
+        //微信图书馆2.0接口请求url前缀
+        //'wxlib_v2'  => 'https://dev.bookgo.com.cn/v2/',   //测试环境
+        'wxlib_v2'  => 'https://wxlib.bookgoal.com.cn/',   //正式环境
+        //'wxlib_v2'  => 'http://wxlib.bookgo.com.me/',       //本地环境
+
+        //云图书馆接口请求url前缀
+        'clms'  => 'http://dev.bookgo.com.cn:8081/',   //测试环境
+        //'clms'  => 'https://clms.bookgo.com.cn/',   //正式环境
+
+         //数据展示项目 接口请求url前缀
+        //'data'  => 'http://stat.bookgoal.com.cn/',   //正式环境
+        'data'  => 'http://dev.bookgo.com.cn/',       //测试环境
+    ],
+    'rpc' => [
+        //通用rpc服务域名，如不指定，将利用common端的配置
+        'common' => [
+//            'domain' => 'http://svc.bookgo.com.cn/',    //正式环境
+            'domain' => 'http://dev.bookgo.com.cn:86/', //测试环境
+            'jsonrpc_host' => 'http://dev.bookgo.com.cn:86/',//hyperf rpc服务端host:port
+        ],
+        //用户服务rpc域名配置
+        'user' => [
+//            'domain' => 'http://svc.bookgo.com.cn/',
+            'domain' => 'http://dev.bookgo.com.cn:86/',
+            'jsonrpc_host' => 'http://br.bookgo.com.cn:9503/',//hyperf rpc服务端host:port
+        ],
+        //图书管理系统
+        'lms' => [
+            'domain' => 'http://dev.bookgo.com.cn:86/', //测试环境
+        ],
+    ],
+];

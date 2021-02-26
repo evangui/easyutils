@@ -1,0 +1,44 @@
+<?php
+// +----------------------------------------------------------------------
+// | 消息队列主题配置
+// +----------------------------------------------------------------------
+return [
+    'trace_log' => 1,   //debug模式：记录详细日志
+
+    //自定义消息队列数据库，如不设置，则使用默认主数据库配置
+    'database'     => [
+        'type'          => 'mysql',
+        'hostname'      => '47.97.182.72',
+        'username'      => 'root',
+        'password'      => 'Bookgoal@116',
+        'database'      => 'bookgoal_ucenter',
+        'prefix'        => 'buc_',
+        'break_reconnect' => true, // 是否需要断线重连
+        'kafka_brokers' => '127.0.0.1:9092',  //多个broker地址 用逗号隔开多个kafka
+    ],
+
+    //人脸绑定事件消息队列
+    'ReaderFace_bind' => [
+        'consume_mode' => 'kafka',  //消息队列消费模式
+        'max_error_times' => 5,     //最大错误重试次数
+        'job_class'  => 'EasyUtils\Mq\Service\KafkaMq',
+        'job_method' => 'doJob',
+        'job_max_error_method' => 'doJobErr',
+    ],
+
+    //下发的开门闸指令 主题的消息队列
+    'Door_command' => [
+        'consume_mode' => 'simple',  //消息队列消费模式
+        'max_error_times' => 1,     //最大错误重试次数
+        'job_class'  => 'app\Entrance\Logic\EntranceJob', //该主题消费者作业类
+        'job_method' => 'serverCommand',    //该主题消费者作业类方法（注意设置为静态方法）
+    ],
+
+    //消息主题名列表
+    'Reader_delete' => [
+        'max_error_times' => 4,
+        'job_class'  => 'app\uar\logic\Reader', //该主题消费者作业类
+        'job_method' => 'queueDeleteReaderCallback',    //该主题消费者作业类方法（注意设置为静态方法）
+    ],
+
+];

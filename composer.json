@@ -1,0 +1,55 @@
+{
+  "name": "evangui/easyutils",
+  "description": "工具库",
+  "keywords": [
+    "easyutils",
+    "utils",
+    "api",
+    "sdk"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "evangui",
+      "email": "guiyj007@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "elasticsearch/elasticsearch": "~6.7.0",
+    "hprose/hprose": "2.0.0",
+    "guzzlehttp/guzzle": "^6.2 || ^7.0",
+    "monolog/monolog": "^1.22 || ^2.0",
+    "graze/guzzle-jsonrpc": "^3.2",
+    "endroid/qr-code": "^3.9",
+    "php-ffmpeg/php-ffmpeg": "^0.17.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.15",
+    "mikey179/vfsstream": "^1.6",
+    "mockery/mockery": "^1.2.3",
+    "phpstan/phpstan": "^0.12.0",
+    "phpunit/phpunit": "^7.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "EasyUtils\\": "src/"
+    },
+    "files": [
+      "src/Kernel/Support/Helpers.php",
+      "src/Kernel/Helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "EasyWeChat\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "phpcs": "vendor/bin/php-cs-fixer fix",
+    "phpstan": "vendor/bin/phpstan analyse",
+    "check-style": "php-cs-fixer fix --using-cache=no --diff --config=.php_cs --dry-run --ansi",
+    "fix-style": "php-cs-fixer fix --using-cache=no --config=.php_cs --ansi",
+    "test": "vendor/bin/phpunit --colors=always"
+  }
+}

@@ -1,0 +1,21 @@
+<?php
+/**
+ * REDIS缓存服务器配置
+ */
+return [   //全局redis
+    /* Redis服务器配置 */
+    'host'   => '47.97.182.72',//Redis服务器地址
+    'port'   => '6379',//Redis服务器端口
+    'pass'   => 'bg@0202',//Redis服务密码
+    'index'  => '2',//默认缓存db索引
+    'prefix' => '',//缓存前缀
+
+    // 消息队列redis配置
+    'message' => [
+        'host'   => '47.97.182.72',//Redis服务器地址
+        'port'   => '6379',//Redis服务器端口
+        'pass'   => 'bg@0202',//Redis服务密码
+        'index'  => '2',//默认缓存db索引
+        'prefix' => '',//缓存前缀
+    ],
+];

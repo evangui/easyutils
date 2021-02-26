@@ -1,0 +1,31 @@
+#!/bin/bash
+#此脚本为消息队列服务自启动脚本
+#用于检测消息队列消费服务调用进程数，当达不到指定数时，实时创建
+#crontab定时任务设置如下（启动bg_wxlib项目的消息队列服务，期望开20个进程）
+#* * * * * cd /home/www/bg_wxlib/extend/EasyUtils/message; /bin/bash bash consume_server_run.sh bg_wxlib 20
+
+project_name=$1         #项目名，同目录名,如 bg_wxlib
+expect_proc_num=$2      #期望进程数
+if [ ! $project_name ];then
+    echo 'param 1 is project name, can not be empty'
+    exit
+fi
+
+log_path=consume_server_$project_name.log;
+echo $(date '+%Y-%m-%d %H:%I') start ... >> $log_path;
+
+pro=`ps aux | grep  $project_name/think\ consume_server | grep -v grep | wc -l`
+let left_proc_num=$expect_proc_num-pro;
+
+echo left_proc_num is $left_proc_num >> $log_path;
+
+#如果当前进程数，少于期望启动的进程数，则补齐差额数
+while [ $left_proc_num -gt 0 ];do
+    nohup php /home/www/$project_name/think consume_server all >> $log_path 2>&1 &
+    let left_proc_num=$left_proc_num-1;
+    echo start a process,left num: $left_proc_num >> $log_path;
+    #loop_num = `expr $loop_num + 1`;
+done
+
+echo done! >> $log_path;
+echo ========================================== >> $log_path;

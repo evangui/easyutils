@@ -1,0 +1,12 @@
+.env
+.DS_Store
+composer.lock
+/.idea
+/.vagrant
+/node_modules
+/.project
+/.vscode
+.phpintel
+
+/common/config/api_config.php
+/forward/config.php
