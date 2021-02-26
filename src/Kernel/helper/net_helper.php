@@ -4,8 +4,8 @@
  *
  * net.php
  */
-use EasyUtils\Kernel\constant\SysNameConst;
-use EasyUtils\Kernel\constant\ApiCodeConst;
+use EasyUtils\Kernel\Constant\SysNameConst;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
 
 /**
  * 请求自助借还系统接口

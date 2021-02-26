@@ -5,7 +5,7 @@
  * SingletonTrait.php
  * 2019-01-29 16:09  guiyj<guiyj007@gmail.com>
  */
-namespace EasyUtils\Kernel\traits;
+namespace EasyUtils\Kernel\Traits;
 
 trait SingletonTrait
 {

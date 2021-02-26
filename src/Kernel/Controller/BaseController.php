@@ -6,15 +6,27 @@
  *
  * 本公用控制器主要用来定义请求与响应的公用助手方法
  */
-namespace EasyUtils\Kernel\controller;
+namespace EasyUtils\Kernel\Controller;
 
-use App\Http\Controllers\Controller;
 use Firebase\JWT\JWT;
-use EasyUtils\Kernel\constant\ApiCodeConst;
-use Illuminate\Support\Facades\Validator;
+use think\facade\Env;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
+use think\Validate;
 
-abstract class BaseLaravelController extends Controller
+abstract class BaseController extends \think\Controller
 {
+    /**
+     * 基类控制器初始化方法
+     * {@inheritDoc}
+     * @see \think\Controller::initialize()
+     */
+    public function initialize()
+    {
+        //通过参数设置app_trace，控制页面显示跟踪日志
+        $app_trace = input('param.trace');
+        null !== $app_trace && Env::set('APP_TRACE', $app_trace);
+	}
+
     /**
      * 验证入参是否必填
      * @param array|string $param_keys   必须存在的参数名
@@ -27,13 +39,14 @@ abstract class BaseLaravelController extends Controller
      */
     protected function checkMustParam($param_keys, $param=null, $strip_vals=[])
     {
-        $request = request();
         if (!$param) {
-            $param = $request->input();
+            $param = array_merge($this->request->post(), $this->request->get());
         }
         is_string($param_keys) && $param_keys = explode(',', $param_keys);
 
         $rule = [];
+        $is_think51 = !defined('THINK_VERSION');
+        //think5.1版本后，验证参数规则写法有变化
         foreach ($param_keys as $k => $v) {
             $v_arr    = explode('|', trim($v));
             $rule_k   = trim($v_arr[0]);
@@ -41,24 +54,22 @@ abstract class BaseLaravelController extends Controller
                 header("Content-type: application/json; charset=utf-8");
                 exit(json_encode($this->retError("读者证号不能为空")->getData()));
             }
-            $rule_val = 'required' . (!empty($v_arr[1]) ? "|{$v_arr[1]}" : '');
-            $rule[$rule_k] = $rule_val;
+            $rule_val = 'require' . (!empty($v_arr[1]) ? "|{$v_arr[1]}" : '');
+            if ($is_think51) {
+                $rule[$rule_k] = $rule_val;
+            } else {
+                $rule[] = [$rule_k, $rule_val];
+            }
         }
-
         // 参数验证
-        $validator = Validator::make($param, $rule);
-        if ($validator->fails()) {
+        $validate = new Validate($rule);
+        if ($validate->check($param) == false) {
             if (headers_sent($filename, $linenum)) {
                 $t = "在文件{$filename}第{$linenum}行有字符输出";
             } else {
                 header("Content-type: application/json; charset=utf-8");
             }
-            $msgs = $validator->errors()->toArray();
-            $msg = '';
-            foreach ($msgs as $k => $v) {
-                $msg .= $k . ' ' . implode(',', $v);
-            }
-            exit(json_encode($this->retError($msg)));
+            exit(json_encode($this->retError($validate->getError())->getData()));
         }
         if ($strip_vals) {
             is_string($strip_vals) && $strip_vals = explode(',', $strip_vals);
@@ -70,7 +81,7 @@ abstract class BaseLaravelController extends Controller
                         header("Content-type: application/json; charset=utf-8");
                     }
                     $err_msg = "{$k}的值不能为{$v}";
-                    exit(json_encode($this->retError($err_msg)));
+                    exit(json_encode($this->retError($err_msg)->getData()));
                 }
             }
         }
@@ -83,9 +94,21 @@ abstract class BaseLaravelController extends Controller
     protected function parseMemberFromToken()
     {
         $request = $this->request;
-        // 如果用户登陆后的所有请求没有jwt的token抛出异常
-        $token = $request->param('access_token') ? $request->param('access_token')
-            : $request->header('access_token');
+
+        if (!empty($request->param('__uid')) && env('jwt_ignore')) {
+            load_helper('token');
+
+            $payload = [
+                'uid'        => $request->param('__uid'),
+                'from_appid' => empty($params['__appid']) ? '': $params['__appid'],
+                'from_aid'   => empty($params['__aid']) ? 0: $params['__aid'],
+                'login_time' => time(),
+            ];
+            $token = create_token($payload);
+        } else {
+            // 如果用户登陆后的所有请求没有jwt的token抛出异常
+            $token = $request->param('access_token') ? $request->param('access_token') : $request->header('access_token');
+        }
 
         if (strlen($token) < 8) {
             $request->member = null;
@@ -150,4 +173,23 @@ abstract class BaseLaravelController extends Controller
         }
         return $response;
 	}
+
+    /**
+     * 访问频率限制
+     * @param array $params_vals
+     * @param int $time_interval
+     */
+    protected function checkReqFrequency($params_vals=[], $time_interval=60)
+    {
+        !is_array($params_vals) && $params_vals = [$params_vals];
+        $backtrace = debug_backtrace();
+        //访问频率限制为10秒
+        $key = "{$backtrace[1]['class']}_{$backtrace[1]['function']}_" . implode('&', $params_vals);
+        try {
+            check_req_frequency($key, $time_interval);
+        } catch (\Exception $e) {
+            header("Content-type: application/json; charset=utf-8");
+            exit(json_encode($this->retError($e->getMessage(), $e->getCode())->getData()));
+        }
+    }
 }

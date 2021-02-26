@@ -7,7 +7,7 @@
  *
  */
 namespace EasyUtils\Wechat\Service;
-use EasyUtils\Kernel\constant\WeixinConst;
+use EasyUtils\Kernel\Constant\WeixinConst;
 use EasyUtils\Kernel\Support\HandlerFactory;
 use EasyUtils\User\Service\UserFacade;
 
@@ -79,7 +79,7 @@ class Wxapp
 
     /**
      * 发送小程序模板消息
-     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\constant\WxTemplateType
+     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\Constant\WxTemplateType
      * @param array $data 消息主体,eg:
      * [
      *  'keyword1' => 'VALUE',
@@ -445,7 +445,7 @@ class Wxapp
     /**
      * 根据小程序与模板类型名，获取对应的模板消息配置信息
      * @param $aid
-     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\constant\WxTemplateType
+     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\Constant\WxTemplateType
      * @return array
      */
     protected function getTemplates($wxapp_name, $tpl_type)

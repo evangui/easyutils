@@ -7,7 +7,7 @@
  *
  * 被定义的每个常量 与数据库中的模板消息类型id一致
  */
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 class WxTemplateType
 {

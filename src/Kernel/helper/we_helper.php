@@ -68,7 +68,7 @@ function we_init($appid) {
 /**
  * 发送公众号模板消息
  * @param int $aid  图书馆aid
- * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\constant\WxTemplateType
+ * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\Constant\WxTemplateType
  * @param array $data 消息主体,eg: [
  *      'first' => ['value'=>'你好'],
  *      'keyword1' => ['value'=>'你好'],
@@ -99,7 +99,7 @@ function we_send_message(
 /**
  * 发送消息队列形式的模板消息
  * @param int $aid  图书馆aid
- * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\constant\WxTemplateType
+ * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\Constant\WxTemplateType
  * @param array $data 消息主体,eg: [
  *      'first' => ['value'=>'你好'],
  *      'keyword1' => ['value'=>'你好'],

@@ -6,7 +6,7 @@
  *
  * 本公用控制器主要用来定义请求与响应的公用助手方法
  */
-namespace EasyUtils\Kernel\controller;
+namespace EasyUtils\Kernel\Controller;
 
 /**
  * Yar控制器类

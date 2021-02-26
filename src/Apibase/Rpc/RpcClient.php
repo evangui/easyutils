@@ -11,7 +11,7 @@ namespace EasyUtils\Apibase\Rpc;
 
 use EasyUtils\Apibase\JsonRpcHandler;
 use EasyUtils\Apibase\RpcHandler;
-use EasyUtils\Kernel\traits\SingletonTrait;
+use EasyUtils\Kernel\Traits\SingletonTrait;
 
 class RpcClient
 {

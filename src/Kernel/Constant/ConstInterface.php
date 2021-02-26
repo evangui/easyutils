@@ -6,7 +6,7 @@
  * 2019年1月26日 下午14:07:04  guiyj<guiyj007@gmail.com>
  *
  */
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 /**
  * 抽象常量类

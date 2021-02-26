@@ -12,7 +12,7 @@ use EasyUtils\Apibase\Rpc\User\User3rdInterface;
 use EasyUtils\Apibase\Rpc\User\UserInterface;
 use EasyUtils\Apibase\Rpc\User\ReaderInterface;
 use EasyUtils\Apibase\RpcHandler;
-use EasyUtils\Kernel\traits\SingletonTrait;
+use EasyUtils\Kernel\Traits\SingletonTrait;
 
 /**
  * Class PointRpcClient.

@@ -14,7 +14,7 @@ use EasyUtils\Kernel\Support\Output;
 function biz_exception($msg = '', $code = 1, $exception = '\EasyUtils\Kernel\exception\BizException', $data=[])
 {
     if (null === $code) {
-        $code = \EasyUtils\Kernel\constant\ApiCodeConst::BIZ_ERR;
+        $code = \EasyUtils\Kernel\Constant\ApiCodeConst::BIZ_ERR;
     }
     Output::throwBizException($msg, $code, $exception, $data);
 }

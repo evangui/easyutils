@@ -9,7 +9,7 @@
 
 namespace EasyUtils\Wechat\Service;
 
-use EasyUtils\Kernel\constant\WxTemplateType;
+use EasyUtils\Kernel\Constant\WxTemplateType;
 use EasyUtils\Kernel\Support\HandlerFactory;
 use EasyUtils\message\Service\Producer;
 use EasyUtils\User\Service\UserFacade;

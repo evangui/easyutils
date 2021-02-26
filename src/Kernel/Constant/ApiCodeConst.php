@@ -8,7 +8,7 @@
  * 这里定义了接口返回状态码类常量
  * 请注意新定义的常量值，保持一定规范：在上一个定义常量基础上顺序加1
  */
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 class ApiCodeConst extends AbstractCodeConst
 {

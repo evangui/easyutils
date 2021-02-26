@@ -10,8 +10,8 @@
 namespace EasyUtils\CustomBiz\Forward\Service\Proxy\module\impl_general;
 
 use EasyUtils\Apibase\ApiException;
-use EasyUtils\Kernel\constant\ApiCodeConst;
-use EasyUtils\Kernel\traits\SingletonTrait;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
+use EasyUtils\Kernel\Traits\SingletonTrait;
 
 /**
  * 图书借阅模块代理的通用实现类

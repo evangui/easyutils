@@ -9,7 +9,7 @@
  */
 namespace EasyUtils\CustomBiz\Forward\Service\Proxy\module\impl_collectdata;
 
-use EasyUtils\Kernel\traits\SingletonTrait;
+use EasyUtils\Kernel\Traits\SingletonTrait;
 use EasyUtils\CustomBiz\Forward\Service\Proxy\module\IBrProxy;
 
 /**

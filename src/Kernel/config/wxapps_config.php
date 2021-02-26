@@ -1,6 +1,6 @@
 <?php
 //微信小程序配置文件
-use EasyUtils\Kernel\constant\WxTemplateType;
+use EasyUtils\Kernel\Constant\WxTemplateType;
 return [
     /**
      * 小程序关键配置参数

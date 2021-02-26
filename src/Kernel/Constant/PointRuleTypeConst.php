@@ -6,7 +6,7 @@
  * 2022-5-2  guiyj<guiyj007@gmail.com>
  *
  */
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 class PointRuleTypeConst extends AbstractCodeConst
 {

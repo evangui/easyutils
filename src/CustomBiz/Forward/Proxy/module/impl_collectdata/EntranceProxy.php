@@ -9,9 +9,9 @@
  */
 namespace EasyUtils\CustomBiz\Forward\Service\Proxy\module\impl_collectdata;
 
-use EasyUtils\Kernel\constant\ApiCodeConst;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
 use EasyUtils\Kernel\Support\HttpRequest;
-use EasyUtils\Kernel\traits\SingletonTrait;
+use EasyUtils\Kernel\Traits\SingletonTrait;
 use EasyUtils\CustomBiz\Forward\Service\ForwordProxyException;
 use EasyUtils\CustomBiz\Forward\Service\Proxy\module\IEntranceProxy;
 

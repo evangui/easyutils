@@ -4,7 +4,7 @@
  * 2020-02-11  wangpeng<wangpeng@bookgoal.com.cn>
  */
 
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 
 class MessageType

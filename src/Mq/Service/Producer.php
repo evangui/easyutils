@@ -8,7 +8,7 @@
  */
 namespace EasyUtils\Mq\Service;
 
-use EasyUtils\Kernel\constant\ApiCodeConst;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
 use EasyUtils\Kernel\exception\BizException;
 use think\Db;
 

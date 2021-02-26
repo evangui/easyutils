@@ -9,7 +9,7 @@
  *
  */
 namespace EasyUtils\Wechat\Service;
-use EasyUtils\Kernel\constant\WeixinConst;
+use EasyUtils\Kernel\Constant\WeixinConst;
 use EasyUtils\Kernel\Support\HandlerFactory;
 use EasyUtils\User\Service\UserFacade;
 use EasyUtils\Factory;

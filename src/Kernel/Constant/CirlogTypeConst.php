@@ -6,7 +6,7 @@
  * 2019年2月25日 下午14:07:04  guiyj<guiyj007@gmail.com>
  *
  */
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 class CirlogTypeConst extends AbstractCodeConst
 {

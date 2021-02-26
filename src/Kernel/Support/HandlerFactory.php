@@ -12,8 +12,8 @@ namespace EasyUtils\Kernel\Support;
 
 use app\ali\logic\AliMiniApp;
 use app\weixin\logic\Wxapp;
-use EasyUtils\Kernel\constant\WeixinConst;
-use EasyUtils\Kernel\traits\SingletonTrait;
+use EasyUtils\Kernel\Constant\WeixinConst;
+use EasyUtils\Kernel\Traits\SingletonTrait;
 use EasyUtils\ocr\Service\BaiduOcr;
 use EasyUtils\ocr\Service\WxOcr;
 use EasyUtils\Factory;

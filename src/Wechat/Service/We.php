@@ -9,8 +9,8 @@
 
 namespace EasyUtils\Wechat\Service;
 
-use EasyUtils\Kernel\constant\WeixinConst;
-use EasyUtils\Kernel\constant\WxTemplateType;
+use EasyUtils\Kernel\Constant\WeixinConst;
+use EasyUtils\Kernel\Constant\WxTemplateType;
 use EasyUtils\Kernel\Support\HandlerFactory;
 use EasyUtils\message\Service\Producer;
 use EasyUtils\User\Service\UserFacade;
@@ -31,7 +31,7 @@ class We
     /**
      * 发送消息队列形式的模板消息
      * @param int $aid 图书馆aid
-     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\constant\WxTemplateType
+     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\Constant\WxTemplateType
      * @param array $data 消息主体,eg: [
      *      'first' => ['value'=>'你好'],
      *      'keyword1' => ['value'=>'你好'],
@@ -119,7 +119,7 @@ class We
     /**
      * 发送模板消息
      * @param int $aid 图书馆aid
-     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\constant\WxTemplateType
+     * @param string $tpl_type 模板消息类型，对应管理后台的消息类型，请用如下方式获取：EasyUtils\Kernel\Constant\WxTemplateType
      * @param array $data 消息主体,eg: [
      *      'first' => ['value'=>'你好'],
      *      'keyword1' => ['value'=>'你好'],

@@ -16,7 +16,7 @@
  *     + 如需要为单个业务定制状态码，请用AbstractConst方式
  *     + 如需要为综合复杂的，可能涉及到多个业务进行综合常量定义时，可用类似该类的模式
  */
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 /**
  * 抽象常量类

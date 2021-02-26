@@ -7,7 +7,7 @@
  */
 namespace EasyUtils\message\tests;
 use app\weixin\model\LibApp;
-use EasyUtils\Kernel\constant\WeixinConst;
+use EasyUtils\Kernel\Constant\WeixinConst;
 use EasyUtils\Kernel\Support\LibConf;
 use EasyUtils\Wechat\Service\OpenWxapp;
 use PHPUnit\Framework\TestCase;

@@ -9,7 +9,7 @@
  */
 namespace EasyUtils\apibase;
 
-use EasyUtils\Kernel\constant\ApiCodeConst;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
 use think\facade\Config;
 use think\facade\Log;
 

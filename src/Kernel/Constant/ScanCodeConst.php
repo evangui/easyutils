@@ -6,7 +6,7 @@
  * 2020-03-11  guiyj<guiyj007@gmail.com>
  *
  */
-namespace EasyUtils\Kernel\constant;
+namespace EasyUtils\Kernel\Constant;
 
 class ScanCodeConst extends AbstractCodeConst
 {

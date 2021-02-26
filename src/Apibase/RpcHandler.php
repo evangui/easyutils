@@ -10,7 +10,7 @@
 namespace EasyUtils\apibase;
 
 
-use EasyUtils\Kernel\constant\SysNameConst;
+use EasyUtils\Kernel\Constant\SysNameConst;
 use EasyUtils\Kernel\exception\BizException;
 use EasyUtils\Kernel\Support\HandlerFactory;
 

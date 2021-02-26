@@ -11,7 +11,7 @@
 namespace EasyUtils\CustomBiz\Forward\Service\Proxy\module\impl_general;
 
 use EasyUtils\Apibase\ApiException;
-use EasyUtils\Kernel\constant\ApiCodeConst;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
 use EasyUtils\Kernel\Support\HttpRequest;
 use EasyUtils\CustomBiz\Forward\Service\ForwordProxyException;
 use EasyUtils\Kernel\Support\Str;

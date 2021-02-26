@@ -10,7 +10,7 @@
 namespace EasyUtils\CustomBiz\Forward\Service\Proxy\module\impl_collectdata;
 
 use EasyUtils\CustomBiz\Forward\Service\Proxy\module\IBookProxy;
-use EasyUtils\Kernel\traits\SingletonTrait;
+use EasyUtils\Kernel\Traits\SingletonTrait;
 
 /**
  * 书籍模块代理的通用实现类

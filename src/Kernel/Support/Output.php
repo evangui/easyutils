@@ -1,7 +1,7 @@
 <?php
 namespace EasyUtils\Kernel\Support;
 
-use EasyUtils\Kernel\constant\ApiCodeConst;
+use EasyUtils\Kernel\Constant\ApiCodeConst;
 use Illuminate\Support\Facades\Log;
 
 class Output

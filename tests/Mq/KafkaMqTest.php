@@ -9,7 +9,7 @@ namespace EasyUtils\message\tests;
 use app\api\logic\CirLogLogic;
 use app\uar\logic\Reader;
 use app\uar\logic\ReaderFace;
-use EasyUtils\Kernel\constant\CirlogTypeConst;
+use EasyUtils\Kernel\Constant\CirlogTypeConst;
 use EasyUtils\Kernel\helper\staticUtil\Image;
 use EasyUtils\message\Service\KafkaMq;
 use EasyUtils\message\Service\SimpleServer;
